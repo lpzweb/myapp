@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="myapp" ng-controller="myctrl">
+		<form  name="myform" novalidate>
+			用户名：<input type="text" name="user"   ng-model="user" required />
+			<span style="color: red;" ng-show="myform.user.$dirty&&myform.user.$invalid">
+				<span ng-show="myform.user.$error.required">用户名必填</span>
+			</span>
+			<br/>
+			邮箱：<input type="email" name="email" id="email" ng-model="email" required />
+				<span style="color: red;" ng-show="myform.email.$dirty&&myform.email.$invalid">
+					<span ng-show="myform.email.$error.required">邮箱必填</span>
+					<span ng-show="myform.email.$error.email">邮箱格式错误</span>
+				</span>
+			<br/>
+			<input type="submit" value="提交"/>
+		</form>
+		
+		
+	</body>
+	<script src="../js/angular.min.js" type="text/javascript">
+		
+	</script>
+	<script type="text/javascript">
+		var app=angular.module("myapp",[]);
+		app.controller("myctrl",function($scope){
+			
+		})
+	</script>
+	
+</html>

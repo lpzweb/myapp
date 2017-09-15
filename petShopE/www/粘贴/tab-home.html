@@ -1,0 +1,290 @@
+<ion-view view-title="主页" hide-nav-bar="true" >
+	<style type="text/css">
+		a{text-decoration: none;}
+		.row{padding: 0 ;border: none;}
+		.col{padding: 0;border: none;}
+		/*首页导航栏样式------------------------------*/
+		.home-nav{width: 13rem;background: wheat;}
+		.home-nav a{font-size: 0.2rem;}
+		.button-bar{height: 100%;}
+	     /*首页轮播广告样式-----------------------------*/
+  		.swiper-container1{width: 100%;height:40rem;}
+  		.swiper-container2{width: 100%;height: 3.2rem;}
+  		.swiper-container2 img{width: 100%;height: 3.2rem;border-radius: 0.4rem;}
+  		/*.swiper-container3{width: 100%;height: 3.2rem;}
+  		.swiper-container3 img{width: 100%;height: 3.2rem;}*/
+  		.active{border-bottom: 1px solid #008B8B;color: #00BFFF;}
+  		.classify{padding: 0;width: 100%;}
+  		.classify>.col{padding: 0;border: none;}
+  		.classify>.col p{text-align: center;}
+  		/*每日疯抢-----------------------------*/
+  		.col .item .price{color: #EF473A;font-size: 0.4rem;font-weight: 600;}	
+  		.save{font-size: 0.15rem;text-align: center;color: #999999;}
+  	</style>
+  	<!--首页搜索框--------------------------------->
+  		<div class="item item-input-inset" style="height: 1rem; width: 100%;">
+			<p style="margin-right: 0.4rem;">狗站|广州</p>
+	    	<label class="item-input-wrapper">
+	    		<i class="icon ion-search"></i>
+	    		<input type="text" placeholder="Search"/>
+	    	</label>  			
+   		 </div>
+    <!--首页内部导航------------------------------------>
+    <ion-scroll direction="x" scrollbar-x="false" zooming="true" style="height: 0.95rem; width: 100%;z-index: 999;">
+    	<div class="home-nav">
+    		 <div class="button-bar" style="height: 0.95;">
+    		 	<!--href="#/nihao"-->
+			  <a class="button dian active" >首页</a>
+			  <!--href="#/computer"-->
+			  <a class="button dian"  >狗粮</a>
+			  <!--href="#/printer"-->
+			  <a class="button dian" >特卖</a>
+			  <!--href="#/nihao"-->
+			  <a class="button dian">潮品视频</a>
+			  <a class="button dian">购物车</a>
+			  <a class="button dian">个人中心</a>
+			</div>
+    	</div>
+	 </ion-scroll>
+	 <!--swiper切换首页导航--------------------------------->
+	
+    <!--首页主内容区------------------------>
+  <ion-content ng-controller="homeCtrl" style="padding-top: 1.95rem; height:100%;background: #F1F5F3;">
+  	 <div class="swiper-container swiper-container1">
+		  <div class="swiper-wrapper">
+		  	<!--首页部分------------------------------------------------>
+		  	<div class="swiper-slide swiper-no-swiping" ng-controller="homehomeCtrl">
+  	<!--	轮播图部分-->
+    		<!--<ion-slide-box auto-play="true" show-pager="true" delegate-handle="slideimgs">
+    			<ion-slide >
+    				<div class="box"><img src="img/shouye_02.png"/></div>
+    			</ion-slide>
+    			<ion-slide >
+    				<div class="box"><img src="img/shouye_03.png"/></div>
+    			</ion-slide>
+    			<ion-slide >
+    				<div class="box"><img src="img/slideimage01.png"/></div>
+    			</ion-slide>
+    		</ion-slide-box>-->
+   	<!--swiper轮播图------------------------------------->
+	   		<div class="swiper-container swiper-container2">
+			  <div class="swiper-wrapper">
+			    <div class="swiper-slide box"><img src="img/shouye_02.png"/></div>
+			    <div class="swiper-slide box"><img src="img/shouye_03.png"/></div>
+			    <div class="swiper-slide box"><img src="img/slideimage01.png"/></div>
+			  </div>
+			  <div class="swiper-pagination"></div>
+			</div>	
+	<!--爆款图片------------------------------->
+			<img width="100%" height="100%" src="img/hhomeimg/oneyuan.png"/>
+	<!--分类模块------------------------------------>
+			<div class="row classify">
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/Eteam.png">
+				  <p>E宠团</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/brand.png">
+			      <p>品牌</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/experience.png">
+			      <p>体验馆</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/make.png">
+			      <p>清仓</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/hotsale.png">
+			      <p>礼包</p>
+			    </a>
+			  </div>
+			</div>
+	<!--每日疯抢------------------------------>
+			<ion-list>
+				<ion-item>
+					<img src="img/hhomeimg/2017-08-31_093440.png"style="vertical-align: middle;width: 2.5rem;height: .6rem;"/>
+					<span>距离本场结束</span>
+					<ion-scroll direction="x" scrollbar-x="false" zooming="true" style="height: 3.15rem; width: 100%;z-index: 999;">
+				    	<div class="home-nav">
+				    		 <div class="row classify">
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (1).png">
+								  <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (10).png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (11).png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (2).png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/hotsale.png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/hotsale.png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/hotsale.png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							</div>
+				    	</div>
+					 </ion-scroll>
+				</ion-item>
+			</ion-list>
+	<!--热门栏目------------------------------------------>
+	<ion-list >
+		<ion-item style="padding:0.2rem 0 0;">
+			<p style="text-align: center;">热门栏目</p>
+			<div class="row" style="padding-top: 0.1rem;">
+				<div class="col col-40">
+					<img src="img/hhomeimg/hot-section (1).png" style=" width: 100%;height: 4.9rem;"/>
+				</div>
+				<div class="col col-60">
+					<div class="row">
+						<img src="img/hhomeimg/hot-section (2).png" style="width: 100%; height: 2.5rem;"/>
+					</div>
+					<div class="row">
+						<img src="img/hhomeimg/hot-section (3).png" style="width: 100%;height: 2.5rem;"/>
+					</div>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+	<!--潮品视频------------------------------------------>
+	<ion-list >
+		<ion-item style="padding:0.2rem 0 0;">
+			<p style="text-align: center;">潮品视频</p>
+			<div class="row" style="padding-top: 0.1rem;">
+				<div class="col">
+					<img src="img/hhomeimg/hot-section (3).png" style=" width: 100%;height:100%;"/>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+	<!--体验馆-->
+	<ion-list >
+		<ion-item style="padding:0.2rem 0 0;">
+			<p style="text-align: center;">体验馆</p>
+			<div class="row" style="padding-top: 0.1rem;">
+				<div class="col">
+					<p>iu个luigi和i 哦厉害</p>
+					<!--<div class="swiper-container swiper-container3">
+					  <div class="swiper-wrapper">
+					    <div class="swiper-slide box">
+					    	<img src="img/shouye_02.png"/>
+					    	<div class="">
+					    		
+					    	</div>
+					    </div>
+					    <div class="swiper-slide box"><img src="img/shouye_03.png"/></div>
+					    <div class="swiper-slide box"><img src="img/slideimage01.png"/></div>
+					  </div>
+					  <div class="swiper-pagination swiper-pagination1"></div>
+					</div>	-->
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+	
+	
+		  </div>
+		  <!--首页狗粮部分--------------------------------------->
+		  <div class="swiper-slide ">
+		  		<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+			  	<p>哈哈哈</p>
+		  </div>
+		  <div class="swiper-slide ">
+		  		slider3
+		  </div>
+		  <div class="swiper-slide ">
+		  		slider4
+		  </div>
+		  <div class="swiper-slide ">
+		  		slider5
+		  </div>
+		  <div class="swiper-slide ">
+		  		slider6
+		  </div>
+		</div>
+	</div>
+  </ion-content>
+</ion-view>

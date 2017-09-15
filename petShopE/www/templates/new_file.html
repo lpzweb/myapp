@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		
+    $(function(){
+
+	//Init Navigation
+	var nav = $('.swiper-nav').swiper({
+		slidesPerView: 'auto',
+		freeMode:true,
+		noSwiping : true,
+		freeModeFluid:true,
+		calculateHeight : true,
+		visibilityFullFit: true,
+		onSlideClick: function(nav){
+			pages.swipeTo( nav.clickedSlideIndex )
+		}
+	})
+
+	//Function to Fix Pages Height
+	function fixPagesHeight() {
+		$('.swiper-pages').css({
+			height: $(window).height()-nav.height-48
+		})
+	}
+	$(window).on('resize',function(){
+		fixPagesHeight()
+	})
+	fixPagesHeight()
+
+	//Init Pages
+	var pages = $('.swiper-pages').swiper({
+		noSwiping : true,
+	onSlideChangeStart: function(){
+        $(".swiper-nav .active").removeClass('active')
+        $(".swiper-nav .swiper-slide").eq(pages.activeIndex).addClass('active')  
+    },
+	})
+
+ var mySwiper = new Swiper('#banner',{
+ loop:true,
+	autoplay:5000,
+	calculateHeight : true,
+	pagination : '.pagination',
+	
+    //其他设置
+  });  
+
+	//Scroll Containers
+	$('.scroll-container').each(function(){
+		$(this).swiper({
+		
+			mode:'vertical',
+			scrollContainer: true,
+			mousewheelControl: true,
+			scrollbar: {
+				container:$(this).find('.swiper-scrollbar')[0]
+			}
+		})
+	})
+
+	//Gallery
+	var swiperGallery = $('.swiper-gallery').swiper({
+		mode: 'vertical',
+		slidesPerView: 'auto',
+		freeMode: true,
+		freeModeFluid: true,
+		scrollbar: {
+			container:$('.swiper-gallery .swiper-scrollbar')[0]
+		}
+	})
+	
+	swiperGallery.reInit()
+
+})
+    
+	</script>
+</html>

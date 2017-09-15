@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css"/>
+    <link rel="manifest" href="manifest.json">
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+		<script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+    <script src="cordova.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <!--<script src="js/zepto.min.js"></script>-->
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script>
+      window.onload=function(){
+		    function setRem(){
+					var deviceWidth = document.documentElement.clientWidth;
+					document.documentElement.style.fontSize=deviceWidth/ 8.1 + 'px';
+					if(deviceWidth>810)
+					document.documentElement.style.fontSize=100 + 'px';
+				}
+				setRem();
+				window.onresize=function(){
+					setRem();
+				}
+      }
+    </script>
+  </head>
+  <body ng-app="starter" ng-init="URLAdmin='http://127.0.0.1:8020'">
+    <ion-side-menus>
+		  <ion-side-menu side="left">
+		  	<div class="row positive-bg" style="padding:1.8rem 0;">
+  				<div class="col col-10"></div>
+  				<div class="col col-25" style="width:2rem; height: 2rem;"><img width="100%" height="auto" src="img/login2.jpg"/></div>
+  				<div class="col col-50" style="line-height: 1.8rem;">携程在手,说走就走</div>
+  		</div>
+  		<ion-list>
+  				<ion-item menu-close class="item-icon-left">
+  						<i class="icon ion-social-github"></i>
+  						开通会员
+  				</ion-item>
+  				<ion-item menu-close class="item-icon-left">
+  						<i class="icon ion-social-snapchat"></i>
+  						开通会员
+  				</ion-item>
+  				<ion-item menu-close  class="item-icon-left">
+  						<i class="icon ion-social-freebsd-devil"></i>
+  						开通会员
+  				</ion-item>
+  				<ion-item menu-close  class="item-icon-left">
+  						<i class="icon ion-social-tux"></i>
+  						开通会员
+  				</ion-item>
+  			</ion-list>
+		  </ion-side-menu>
+		  <ion-side-menu-content>
+		  	   <ion-nav-bar class="bar-stable">
+			      <ion-nav-back-button>
+			      </ion-nav-back-button>
+			    </ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+		  </ion-side-menu-content>
+		</ion-side-menus>
+  </body>
+</html>

@@ -1,0 +1,723 @@
+<ion-view view-title="主页" hide-nav-bar="true" >
+	<style type="text/css">
+		a{text-decoration: none;}
+		.row{padding: 0 ;border: none;}
+		.col{padding: 0;border: none;}
+		/*首页导航栏样式------------------------------*/
+		.home-nav{width: 13rem;}
+		.home-nav a{font-size: 0.2rem;}
+		.button-bar{height: 100%;}
+		.nav-wrap .dian{list-style: none;float: left;line-height: 0.9rem;padding: 0 .3rem;font-weight: 200;background: white;}
+		.nav-wrap .dian1{list-style: none;float: left;padding: 0 .3rem;font-weight: 200;}
+		.nav-wrap .dian1 p{background: #D1D3D6;height: .5rem;margin: .2rem 0;line-height: 0.4rem;padding: .05rem;
+									border-radius: 0.1rem;}
+		.nav-wrap .dian1 .NFactive{background: #F1F5F3;border: 1px solid #FF3B30;color:#FF3B30 ;}							
+	     /*首页轮播广告样式-----------------------------*/
+  		.swiper-container1{width: 100%;height:60rem;}
+  		.swiper-container2{width: 100%;height: 3.2rem;}
+  		.swiper-container2 img{width: 100%;height: 3.2rem;border-radius: 0.4rem;}
+  		/*新汪课堂轮播----------------------*/
+  		.swiper-slide .box{width: 100%;height: 3.2rem;}
+  		.swiper-slide .box img{width: 100%;height: 3.2rem;border-radius: 0.4rem;}
+  		.active{border-bottom: 1px solid #008B8B;color: #00BFFF;}
+  		.classify{padding: 0;width: 100%;}
+  		.classify .col{padding: 0;border: none;}
+  		.classify .col p{text-align: center;}
+  		/*每日疯抢-----------------------------*/
+  		.col .item .price{color: #EF473A;font-size: 0.4rem;font-weight: 300;}	
+  		.save{font-size: 0.15rem;text-align: center;color: #999999;}
+  	</style>
+  	<!--首页搜索框--------------------------------->
+  		<div class="item item-input-inset" style="height: 1rem; width: 100%;">
+			<p style="margin-right: 0.4rem;">狗站|广州</p>
+	    	<label class="item-input-wrapper">
+	    		<i class="icon ion-search"></i>
+	    		<input type="text" placeholder="Search"/>
+	    	</label>  			
+   		 </div>
+    <!--首页内部导航------------------------------------>
+    <ion-scroll direction="x" scrollbar-x="false" zooming="true" style="height: 0.9rem; width: 100%;z-index: 999;">
+    	<div class="home-nav">
+		    <ul class="nav-wrap" style="height: 0.95;">
+				<li class="dian active" >首页</li>
+				<li class="dian"  >狗粮</li>
+				<li class="dian" >特卖</li>
+				<li class="dian">潮品视频</li>
+				<li class="dian">新汪课堂</li>
+				<li class="dian">专家讲座</li>
+			</ul>
+		</div>
+	 </ion-scroll>
+	 <!--swiper切换首页导航--------------------------------->
+	
+    <!--首页主内容区------------------------>
+  <ion-content ng-controller="homeCtrl" style="padding-top: 1.95rem; height:100%;background: #F1F5F3;">
+  	 <div class="swiper-container swiper-container1">
+		  <div class="swiper-wrapper">
+		  	<!--首页部分------------------------------------------------>
+		  	<div class="swiper-slide swiper-no-swiping" ng-controller="homehomeCtrl">
+  	<!--	轮播图部分-->
+    		<!--<ion-slide-box auto-play="true" show-pager="true" delegate-handle="slideimgs">
+    			<ion-slide >
+    				<div class="box"><img src="img/shouye_02.png"/></div>
+    			</ion-slide>
+    			<ion-slide >
+    				<div class="box"><img src="img/shouye_03.png"/></div>
+    			</ion-slide>
+    			<ion-slide >
+    				<div class="box"><img src="img/slideimage01.png"/></div>
+    			</ion-slide>
+    		</ion-slide-box>-->
+   	<!--swiper轮播图------------------------------------->
+	   		<div class="swiper-container swiper-container2">
+			  <div class="swiper-wrapper">
+			    <div class="swiper-slide box"><img src="img/shouye_02.png"/></div>
+			    <div class="swiper-slide box"><img src="img/shouye_03.png"/></div>
+			    <div class="swiper-slide box"><img src="img/slideimage01.png"/></div>
+			  </div>
+			  <div class="swiper-pagination" id="swiper-pagination1"></div>
+			</div>	
+	<!--爆款图片------------------------------->
+			<img width="100%" height="100%" src="img/hhomeimg/oneyuan.png"/>
+	<!--分类模块------------------------------------>
+			<div class="row classify">
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/Eteam.png">
+				  <p>E宠团</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/brand.png">
+			      <p>品牌</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/experience.png">
+			      <p>体验馆</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/make.png">
+			      <p>清仓</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/hotsale.png">
+			      <p>礼包</p>
+			    </a>
+			  </div>
+			</div>
+	<!--每日疯抢------------------------------>
+			<ion-list>
+				<ion-item>
+					<img src="img/hhomeimg/2017-08-31_093440.png"style="vertical-align: middle;width: 2.5rem;height: .6rem;"/>
+					<span>距离本场结束</span>
+					<ion-scroll direction="x" scrollbar-x="false" zooming="true" style="height: 3.15rem; width: 100%;z-index: 999;">
+				    	<div class="home-nav">
+				    		 <div class="row classify">
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (1).png">
+								  <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (10).png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (11).png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (2).png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/hotsale.png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/hotsale.png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/hotsale.png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							</div>
+				    	</div>
+					 </ion-scroll>
+				</ion-item>
+			</ion-list>
+	<!--热门栏目------------------------------------------>
+	<ion-list >
+		<ion-item style="padding:0.2rem 0 0;">
+			<p style="text-align: center;">热门栏目</p>
+			<div class="row" style="padding-top: 0.1rem;">
+				<div class="col col-40">
+					<img src="img/hhomeimg/hot-section (1).png" style=" width: 100%;height: 4.9rem;"/>
+				</div>
+				<div class="col col-60">
+					<div class="row">
+						<img src="img/hhomeimg/hot-section (2).png" style="width: 100%; height: 2.5rem;"/>
+					</div>
+					<div class="row">
+						<img src="img/hhomeimg/hot-section (3).png" style="width: 100%;height: 2.5rem;"/>
+					</div>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+	<!--潮品视频------------------------------------------>
+	<ion-list >
+		<ion-item style="padding:0.2rem 0 0;">
+			<p style="text-align: center;">潮品视频</p>
+			<div class="row" style="padding-top: 0.1rem;">
+				<div class="col">
+					<img src="img/hhomeimg/hot-section (3).png" style=" width: 100%;height:100%;"/>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+	<!--体验馆-->
+	<ion-list >
+		<ion-item style="padding:0.2rem 0 0;">
+			<p style="text-align: center;">体验馆</p>
+			<div class="row" style="padding-top: 0.1rem;">
+				<div class="col">
+					<img src="img/hhomeimg/hot-section (3).png" style=" width: 100%;height:100%;"/>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+	<!--品牌特卖-->
+	<ion-list >
+		<ion-item style="padding:0.2rem 0 0;">
+			<p style="text-align: center;border-bottom:1px solid #D9D9D9;">品牌特卖</p>
+			<div class="row" style="padding-top: 0.1rem;">
+				<div class="col">
+					<p>instinct生鲜本能-9.9新品首发</p>
+					<img src="img/hhomeimg/hot-section (3).png" style=" width: 100%;height:100%;"/>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+	<!--TA公益-->
+	<ion-list >
+		<ion-item style="padding:0.2rem 0 0;">
+			<p style="text-align: center;text-decoration: underline;">TA公益</p>
+			<div class="row" style="padding-top: 0.1rem;">
+				<div class="col">
+					<img src="img/hhomeimg/hot-section (3).png" style=" width: 100%;height:100%;"/>
+				</div>
+			</div>
+			<div class="row" style="padding-top: 0.1rem;">
+				<div class="col col-33">
+					<a class="item item-thumbnail-top" href="#">
+				      <img src="img/hhomeimg/make.png">
+				      <p>清仓</p>
+				    </a>
+				</div>
+				<div class="col col-66">
+					<ion-scroll direction="x" scrollbar-x="false" zooming="true" style="height: 3.15rem; width: 100%;z-index: 999;">
+				    	<div class="home-nav">
+				    		 <div class="row classify">
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (1).png">
+								  <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (10).png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (11).png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/every-day (2).png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/hotsale.png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/hotsale.png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-thumbnail-top" href="#">
+							      <img src="img/hhomeimg/hotsale.png">
+							      <p class="price">￥160.00</p>
+								  <p class="save">省￥36.00</p>
+							    </a>
+							  </div>
+							</div>
+				    	</div>
+					 </ion-scroll>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+	<!--口碑评价-->
+	<ion-list >
+		<ion-item style="padding:0.2rem 0 0;">
+			<p style="text-align: center;border-bottom:1px solid #D9D9D9;">口碑评价</p>
+			<div class="row">
+				<div class="col col-50">
+					<a class="item item-thumbnail-top" href="#">
+						<img src="img/hhomeimg/hotsale.png">
+						<p class="price">￥160.00</p>
+						<p class="save">省￥36.00</p>
+					</a>
+				</div>
+				<div class="col col-50">
+					<a class="item item-thumbnail-top" href="#">
+						<img src="img/hhomeimg/hotsale.png">
+						<p class="price">￥160.00</p>
+						<p class="save">省￥36.00</p>
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-50">
+					<a class="item item-thumbnail-top" href="#">
+						<img src="img/hhomeimg/hotsale.png">
+						<p class="price">￥160.00</p>
+						<p class="save">省￥36.00</p>
+					</a>
+				</div>
+				<div class="col col-50">
+					<a class="item item-thumbnail-top" href="#">
+						<img src="img/hhomeimg/hotsale.png">
+						<p class="price">￥160.00</p>
+						<p class="save">省￥36.00</p>
+					</a>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+</div>
+		  <!--首页狗粮部分--------------------------------------->
+		  <div class="swiper-slide swiper-no-swiping">
+		  	<!--分类模块------------------------------------>
+			<div class="row classify">
+			  <div class="col col-25">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/Eteam.png">
+				  <p>E宠团</p>
+			    </a>
+			  </div>
+			  <div class="col col-25">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/brand.png">
+			      <p>品牌</p>
+			    </a>
+			  </div>
+			  <div class="col col-25">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/experience.png">
+			      <p>体验馆</p>
+			    </a>
+			  </div>
+			  <div class="col col-25">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/make.png">
+			      <p>清仓</p>
+			    </a>
+			  </div>
+			</div>
+			<!--品牌特卖-->
+			<ion-list >
+				<ion-item style="padding:0.2rem 0 0;">
+					<div class="row" style="padding-top: 0.1rem;">
+						<div class="col">
+							<p>冠能  <small>送178元智能宠物碗</small></p>
+							<img src="img/hhomeimg/hot-section (3).png" style=" width: 100%;height:100%;"/>
+						</div>
+					</div>
+				</ion-item>
+			</ion-list>
+			<ion-list >
+				<ion-item style="padding:0.2rem 0 0;">
+					<div class="row" style="padding-top: 0.1rem;">
+						<div class="col">
+							<p>丝倍亮  <small>8折送丝巾</small></p>
+							<img src="img/hhomeimg/hot-section (3).png" style=" width: 100%;height:100%;"/>
+						</div>
+					</div>
+				</ion-item>
+			</ion-list>
+			<!--首页内部导航------------------------------------>
+		    <ion-scroll direction="x" scrollbar-x="false" zooming="true" style="height: 0.9rem; width: 100%;z-index: 999;">
+		    	<div class="home-nav">
+		    		 <ul class="nav-wrap">
+					  <li class="dian1"><p class="NFactive">全部</p></li>
+					  <li class="dian1"><p >进口狗粮</p></li>
+					  <li class="dian1"><p >国产狗粮</p></li>
+					  <li class="dian1"><p >散装狗粮</p></li>
+					  <li class="dian1"><p >处方狗粮</p></li>
+					  <li class="dian1"><p >冻干狗粮</p></li>
+					</ul>
+		    	</div>
+			 </ion-scroll>
+			<!--狗粮列表---------------------------------->
+			<div class="list">
+				<div class="item">
+					<div class="row" ng-repeat="d in foodlist" >
+			    		<div class="col-25 " style="float: left;"><img src="{{d.src}}"/ ></div>
+				     	<div class="col-75" style="float: left;">
+				     		<br />
+				     		<p style="white-space: normal;">{{d.describe}}</p>
+				     		<br/>
+				      		<span style="color: #EF473A;">{{d.Nprice}}</span> <small style="text-decoration: line-through;">{{d.Oprice}}</small>
+				      		<p>互动：{{d.interact}}售出：{{d.soldnum}}</p>
+				     	</div>
+			    	</div>
+				</div>
+			</div>
+		  </div>
+		  <!--特卖------------------------------------------>
+		  <div class="swiper-slide swiper-no-swiping">
+		  		<div class="special-top" style="width: 100%;height: 4rem;position: relative;">
+		  			<img src="img/shouye_03.png"/ style="width: 100%;height: 100%;">
+		  			<div style="position: absolute;bottom: 0px; height: 1.58rem;width: 100%; background:rgba(168,79,142,0.5);">
+		  				<!--每日疯抢------------------------------>
+					<ion-scroll direction="x" scrollbar-x="false" zooming="true" style="height: 3.15rem; width: 100%;z-index: 999;">
+				    	<div class="home-nav">
+				    		 <div class="row">
+							  <div class="col col-20">
+							  	<a class="item item-avatar" href="#">
+							      <img src="img/adam.jpg">
+							      <h2>Venkman</h2>
+							      <p>Back off, man. I'm a scientist.</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-avatar" href="#">
+							      <img src="img/adam.jpg">
+							      <h2>Venkman</h2>
+							      <p>Back off, man. I'm a scientist.</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-avatar" href="#">
+							      <img src="img/adam.jpg">
+							      <h2>Venkman</h2>
+							      <p>Back off, man. I'm a scientist.</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-avatar" href="#">
+							      <img src="img/adam.jpg">
+							      <h2>Venkman</h2>
+							      <p>Back off, man. I'm a scientist.</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-avatar" href="#">
+							      <img src="img/adam.jpg">
+							      <h2>Venkman</h2>
+							      <p>Back off, man. I'm a scientist.</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-avatar" href="#">
+							      <img src="img/adam.jpg">
+							      <h2>Venkman</h2>
+							      <p>Back off, man. I'm a scientist.</p>
+							    </a>
+							  </div>
+							  <div class="col col-20">
+							  	<a class="item item-avatar" href="#">
+							      <img src="img/adam.jpg">
+							      <h2>Venkman</h2>
+							      <p>Back off, man. I'm a scientist.</p>
+							    </a>
+							  </div>
+							</div>
+				    	</div>
+					 </ion-scroll>
+		  			</div>
+		  		</div>
+		  		<img src="img/hhomeimg/hot-section (2).png"/>
+		  		<img src="img/hhomeimg/hot-section (2).png"/>
+		  		<img src="img/hhomeimg/hot-section (2).png"/>
+		  		<img src="img/hhomeimg/hot-section (2).png"/>
+		  		<img src="img/hhomeimg/hot-section (2).png"/>
+		  </div>
+		  <!--潮品视频------------------------------------------->
+		  <div class="swiper-slide swiper-no-swiping">
+		  		<ion-list >
+					<ion-item>
+						<div class="row row-wrap">
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_02.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_03.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_02.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_03.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_02.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_03.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_02.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_03.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_02.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_03.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_02.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+							<div class="col col-50">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_03.png">
+									<p>￥160.00</p>
+								</a>
+							</div>
+						</div>	
+					</ion-item>
+				</ion-list>
+		  </div>
+		  <!--新汪课堂----------------------------------------------------->
+		  <div class="swiper-slide swiper-no-swiping">
+		  		<!--轮播图部分-->
+	    		<ion-slide-box auto-play="true" show-pager="true" delegate-handle="slideimgs">
+	    			<ion-slide >
+	    				<div class="box"><img src="img/shouye_02.png"/></div>
+	    			</ion-slide>
+	    			<ion-slide >
+	    				<div class="box"><img src="img/shouye_03.png"/></div>
+	    			</ion-slide>
+	    			<ion-slide >
+	    				<div class="box"><img src="img/slideimage01.png"/></div>
+	    			</ion-slide>
+	    		</ion-slide-box>
+	    		<!--分类模块------------------------------------>
+			<div class="row classify">
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/Eteam.png">
+				  <p>E宠团</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/brand.png">
+			      <p>品牌</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/experience.png">
+			      <p>体验馆</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/make.png">
+			      <p>清仓</p>
+			    </a>
+			  </div>
+			  <div class="col col-20">
+			  	<a class="item item-thumbnail-top" href="#">
+			      <img src="img/hhomeimg/hotsale.png">
+			      <p>礼包</p>
+			    </a>
+			  </div>
+			</div>
+			<!--大家觉得有用------------------------------------------->
+			<div class="list">
+				<div class="item">
+					<p style="text-align: center;">大家觉得有用</p>
+					<ion-slide-box auto-play="true" show-pager="true" delegate-handle="slideimgs">
+		    			<ion-slide >
+		    				<div class="row row-wrap">
+								<div class="col col-50">
+									<a class="item item-thumbnail-top" href="#">
+										<img src="img/shouye_02.png">
+										<p>￥160.00</p>
+									</a>
+								</div>
+								<div class="col col-50">
+									<a class="item item-thumbnail-top" href="#">
+										<img src="img/shouye_03.png">
+										<p>￥160.00</p>
+									</a>
+								</div>
+								<div class="col col-50">
+									<a class="item item-thumbnail-top" href="#">
+										<img src="img/shouye_02.png">
+										<p>￥160.00</p>
+									</a>
+								</div>
+								<div class="col col-50">
+									<a class="item item-thumbnail-top" href="#">
+										<img src="img/shouye_03.png">
+										<p>￥160.00</p>
+									</a>
+								</div>
+							</div>
+		    			</ion-slide>
+		    			<ion-slide >
+		    				<div class="row row-wrap">
+								<div class="col col-50">
+									<a class="item item-thumbnail-top" href="#">
+										<img src="img/shouye_02.png">
+										<p>￥160.00</p>
+									</a>
+								</div>
+								<div class="col col-50">
+									<a class="item item-thumbnail-top" href="#">
+										<img src="img/shouye_03.png">
+										<p>￥160.00</p>
+									</a>
+								</div>
+								<div class="col col-50">
+									<a class="item item-thumbnail-top" href="#">
+										<img src="img/shouye_02.png">
+										<p>￥160.00</p>
+									</a>
+								</div>
+								<div class="col col-50">
+									<a class="item item-thumbnail-top" href="#">
+										<img src="img/shouye_03.png">
+										<p>￥160.00</p>
+									</a>
+								</div>
+							</div>
+		    			</ion-slide>
+		    		</ion-slide-box>
+				</div>
+			</div>
+			<!--养宠知识------------------------------------------->
+			<div class="list">
+				<div class="item">
+					<p style="text-align: center;">养宠知识</p>
+					<div class="row">
+							<div class="col">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_03.png">
+									<p>￥160.00</p>
+								</a>	
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_03.png">
+									<p>￥160.00</p>
+								</a>	
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<a class="item item-thumbnail-top" href="#">
+									<img src="img/shouye_03.png">
+									<p>￥160.00</p>
+								</a>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		  <!--专家讲堂--------------------------------------------------------->
+		  <div class="swiper-slide swiper-no-swiping">
+		  		slider6
+		  </div>
+		</div>
+	</div>
+  </ion-content>
+</ion-view>

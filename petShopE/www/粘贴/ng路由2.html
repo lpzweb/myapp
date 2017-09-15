@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app="myapp">
+		<script type="text/ng-template" id="home.html">
+			<h1>主页</h1>
+		</script>
+		<script type="text/ng-template" id="about.html">
+			<h1>关于</h1>
+		</script>
+		<div id="nav">
+			<a href="#/home">首页</a>
+			<a href="#/about">关于</a>
+		</div>
+		<div ng-view="">
+			
+		</div>
+	</body>
+	<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+        <script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+        <script type="text/javascript">
+        	angular.module("myapp",["ngRoute"])
+        	.controller("homeCtrl",function($scope){
+        		
+        	})
+        	.controller("aboutCtrl",function(){
+        		
+        	})
+        	.config(function($routeProvider){
+        		$routeProvider
+        		.when("/home",{
+        			
+        			templateUrl:"home.html",
+        			controller:"homeCtrl"
+        		})
+        		.when("/about",{
+        			templateUrl:"about.html",
+        			controller:"aboutCtrl"
+        			
+        		})
+        		.otherwise({
+        			redirectTo:"/home"
+        		})
+        		
+        		
+        	})
+        	
+        </script>
+</html>
